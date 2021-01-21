@@ -97,4 +97,32 @@ public void shouldAddFourFilms() {
         assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void shouldAddOneFilm() {
+        FilmPosterManager manager = new FilmPosterManager(1);
+
+        FilmPoster first = new FilmPoster(1, "pictureUrl1", "Блэдшот", "боевик", false);
+
+        manager.add(first);
+
+        manager.getAll();
+
+        FilmPoster[] actual = manager.getAll();
+        FilmPoster[] expected = new FilmPoster[]{first};
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldBeEmpty() {
+        FilmPosterManager manager = new FilmPosterManager(0);
+
+        manager.getAll();
+
+        FilmPoster[] actual = manager.getAll();
+        FilmPoster[] expected = new FilmPoster[]{};
+
+        assertArrayEquals(expected, actual);
+    }
+
 }
